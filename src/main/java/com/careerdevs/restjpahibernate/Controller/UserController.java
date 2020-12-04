@@ -21,8 +21,6 @@ public class UserController {
     @GetMapping("/users")
     public Object getUserPage(@RequestParam(defaultValue = "0") Integer page,
                               @RequestParam(defaultValue = "30") Integer size) {
-        int _page = page != null ? page : 0;
-        int _size = size != null ? size : DEFAULT_SIZE;
 
         Page<User> getPage = service.findAll(page, size);
 
