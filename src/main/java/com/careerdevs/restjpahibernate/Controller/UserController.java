@@ -35,7 +35,7 @@ public class UserController {
         StatelessSession session = service.getSession();
         var transaction= session.beginTransaction(); //returns a new transaction
         //transaction: commit, rollback
-
+        //test
         while ((row = reader.readLine()) != null) {
             //1 = key allows you to set a value to a var
             //2 = compares the value of two variables
