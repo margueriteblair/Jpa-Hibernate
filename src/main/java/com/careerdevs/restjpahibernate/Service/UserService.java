@@ -2,6 +2,8 @@ package com.careerdevs.restjpahibernate.Service;
 
 import com.careerdevs.restjpahibernate.Model.User;
 import com.careerdevs.restjpahibernate.Repository.UserRepository;
+import org.hibernate.SessionFactory;
+import org.hibernate.StatelessSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,6 +16,13 @@ public class UserService {
 
     @Autowired
     UserRepository database;
+
+    @Autowired
+    SessionFactory sessionFactory;
+
+    public StatelessSession getSession() {
+        return sessionFactory.openStatelessSession();
+    }
 
     public List<User> findAll(){
         return database.findAll();
